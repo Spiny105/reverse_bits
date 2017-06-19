@@ -11,23 +11,23 @@ uint32_t ReverseBitsInCycle(uint32_t input, uint32_t bits = sizeof(int) * 8)
 {
 	int leftMask = 0x1 << bits - 1;
 	int rigthMask = 0x1;
-    int output = 0;
+    	int output = 0;
 
-    for (uint32_t i = 0; i < bits / 2; i++)
-    {
-        output |= ((input <<  bits - i*2 - 1) & leftMask) | ((input <<  bits - i*2 - 1) & leftMask);
+    	for (uint32_t i = 0; i < bits / 2; i++)
+    	{
+        	output |= ((input <<  bits - i*2 - 1) & leftMask) | ((input <<  bits - i*2 - 1) & leftMask);
 		leftMask >>= 1;
 		rigthMask <<= 1;
-    }
+    	}
 
-    return output;
+    	return output;
 }
 
 /// Reverse bits without cycle
 /// input - source number
 uint32_t ReverseBits(uint32_t input)
 {
-		input = (input >> 1) & 0x55555555 | (input << 1) & 0xaaaaaaaa;
+	input = (input >> 1) & 0x55555555 | (input << 1) & 0xaaaaaaaa;
         input = (input >> 2) & 0x33333333 | (input << 2) & 0xcccccccc;
         input = (input >> 4) & 0x0f0f0f0f | (input << 4) & 0xf0f0f0f0;
         input = (input >> 8) & 0x00ff00ff | (input << 8) & 0xff00ff00;
