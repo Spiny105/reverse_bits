@@ -15,7 +15,7 @@ uint32_t ReverseBitsInCycle(uint32_t input, uint32_t bits = sizeof(int)* 8)
 
 	for (uint32_t i = 0; i < bits / 2; i++)
 	{
-		output |= ((input << bits - i * 2 - 1) & leftMask) | ((input << bits - i * 2 - 1) & leftMask);
+		output |= ((input << bits - i * 2 - 1) & leftMask) | ((input >> bits - i * 2 - 1) & rigthMask);
 		leftMask >>= 1;
 		rigthMask <<= 1;
 	}
